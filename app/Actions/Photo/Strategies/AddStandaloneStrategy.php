@@ -212,7 +212,7 @@ class AddStandaloneStrategy extends AddBaseStrategy
 				if ($shallNormalize) {
 					$streamStat = $this->sourceImage->save($targetFile, true);
 				} else {
-					$streamStat = $targetFile->write($this->sourceFile->read());
+					$streamStat = $targetFile->write($this->sourceFile->read(), true);
 					$this->sourceFile->close();
 					$targetFile->close();
 				}
