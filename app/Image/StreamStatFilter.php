@@ -4,6 +4,8 @@ namespace App\Image;
 
 /**
  * Class `StreamStatFilter` collects {@link StreamStat} during streaming.
+ *
+ * @property StreamStat|null $params
  */
 class StreamStatFilter extends \php_user_filter
 {
@@ -11,9 +13,6 @@ class StreamStatFilter extends \php_user_filter
 
 	/** @var string the used hashing algorithm; value must be supported by PHP, see {@link hash_algos()} */
 	public const HASH_ALGO_NAME = 'sha1';
-
-	/** @var ?StreamStat the collected stream statistics */
-	public $params = null;
 
 	/** @var \HashContext|null the hash context for progressive hashing */
 	protected ?\HashContext $hashContext = null;
