@@ -59,7 +59,10 @@ class AppServiceProvider extends ServiceProvider
 			});
 		}
 
-		\Safe\stream_filter_register(
+		// We ignore any error here, because the `boot` method may be called
+		// several times by Laravel and any subsequent attempt to register
+		// the same filter anew will fail.
+		stream_filter_register(
 			StreamStatFilter::REGISTERED_NAME,
 			StreamStatFilter::class
 		);
