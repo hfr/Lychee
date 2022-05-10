@@ -102,7 +102,7 @@ class AddVideoPartnerStrategy extends AddBaseStrategy
 					\Safe\symlink($sourceAbsolutePath, $targetAbsolutePath);
 					$streamStat = StreamStat::createFromLocalFile($this->videoSourceFile);
 				} else {
-					$streamStat = $videoTargetFile->write($this->videoSourceFile->read());
+					$streamStat = $videoTargetFile->write($this->videoSourceFile->read(), true);
 					$this->videoSourceFile->close();
 					$videoTargetFile->close();
 					if ($this->parameters->importMode->shallDeleteImported()) {
