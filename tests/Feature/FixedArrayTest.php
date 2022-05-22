@@ -47,35 +47,35 @@ class FixedArrayTest extends TestCase
 	public function testFixedArrayExcept1()
 	{
 		$FA = new FixedArray(self::ENTRIES);
-		$this->expectException(\ErrorException::class);
+		$this->expectException(\OutOfRangeException::class);
 		$FA->nouser = 'username';
 	}
 
 	public function testFixedArrayExcept2()
 	{
 		$FA = new FixedArray(self::ENTRIES);
-		$this->expectException(\ErrorException::class);
+		$this->expectException(\OutOfRangeException::class);
 		$FA['nouser'] = 'username';
 	}
 
 	public function testFixedArrayExcept3()
 	{
 		$FA = new FixedArray(self::ENTRIES);
-		$this->expectException(\ErrorException::class);
+		$this->expectException(\OutOfRangeException::class);
 		$FA->offsetunset('nouser');
 	}
 
 	public function testFixedArrayExcept4()
 	{
 		$FA = new FixedArray(self::ENTRIES);
-		$this->expectException(\ErrorException::class);
+		$this->expectException(\OutOfRangeException::class);
 		$FA['nouser'];
 	}
 
 	public function testFixedArrayExcept5()
 	{
 		$FA = new FixedArray(self::ENTRIES);
-		$this->expectException(\ErrorException::class);
+		$this->expectException(\OutOfRangeException::class);
 		$FA->fromArray(['nouser' => 'test']);
 	}
 }
