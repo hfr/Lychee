@@ -66,7 +66,7 @@ class FixedArray implements \ArrayAccess, \Iterator, \Countable
 		return count($this->_valid_keys);
 	}
 
-	public function count_set(): int
+	public function countSet(): int
 	{
 		$ret = 0;
 		foreach ($this->_valid_keys as $prop) {
@@ -103,7 +103,7 @@ class FixedArray implements \ArrayAccess, \Iterator, \Countable
 		return isset($this->_valid_keys[$this->_pos]);
 	}
 
-	public function get_properties(): array
+	public function getProperties(): array
 	{
 		return $this->_valid_keys;
 	}
@@ -113,7 +113,7 @@ class FixedArray implements \ArrayAccess, \Iterator, \Countable
 		return $this->offsetGet($prop);
 	}
 
-	public function property_exists($prop): bool
+	public function propertyExists($prop): bool
 	{
 		return $this->offsetExists($prop);
 	}

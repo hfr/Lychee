@@ -12,30 +12,30 @@ class FixedArrayTest extends TestCase
 	public function testFixedArray()
 	{
 		$FA = new FixedArray(self::ENTRIES);
-		$this->assertEquals($FA->get_properties(), self::ENTRIES);
+		$this->assertEquals($FA->getProperties(), self::ENTRIES);
 
 		$this->assertEquals($FA->count(), count(self::ENTRIES));
 		$this->assertEquals(count($FA), count(self::ENTRIES));
-		$this->assertEquals($FA->count_set(), 0);
+		$this->assertEquals($FA->countSet(), 0);
 
 		$FA->user = 'username';
-		$this->assertEquals($FA->count_set(), 1);
+		$this->assertEquals($FA->countSet(), 1);
 		$this->assertEquals($FA['user'], 'username');
 
 		$FA['display_name'] = 'full_name';
-		$this->assertEquals($FA->count_set(), 2);
+		$this->assertEquals($FA->countSet(), 2);
 		$this->assertEquals($FA->display_name, 'full_name');
 		$this->assertEqualsCanonicalizing($FA->toArray(), ['user' => 'username', 'display_name' => 'full_name'], 'test A');
 
 		$FB = new FixedArray(self::ENTRIES);
 		$FB->fromArray(['user' => 'username', 'display_name' => 'full_name']);
-		$this->assertEquals($FB->count_set(), 2);
+		$this->assertEquals($FB->countSet(), 2);
 		$this->assertEqualsCanonicalizing($FB->toArray(), $FA->toArray(), 'Test B');
 		$FB->offsetUnset('user');
-		$this->assertEquals($FB->count_set(), 1);
+		$this->assertEquals($FB->countSet(), 1);
 		$this->assertEqualsCanonicalizing($FB->toArray(), ['display_name' => 'full_name'], 'Test C');
 
-		$this->assertTrue($FA->property_exists('user'));
+		$this->assertTrue($FA->propertyExists('user'));
 		$this->assertTrue(isset($FA->user));
 		$this->assertFalse(isset($FA->nouser));
 		$this->assertFalse(isset($FA->dn));
